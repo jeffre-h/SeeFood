@@ -21,7 +21,6 @@ build/
 *.pb
 
 # Training artifacts
-*.png
 best_model.*
 checkpoints/
 
