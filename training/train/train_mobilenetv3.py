@@ -10,6 +10,7 @@ Test Results:
 """
 
 import os
+from pathlib import Path
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -17,15 +18,19 @@ from tensorflow.keras.applications import MobileNetV3Small
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 import matplotlib.pyplot as plt
 
+# Get absolute paths based on script location
+SCRIPT_DIR = Path(__file__).parent.resolve()
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
 
 # ============================================================================
 # Configuration
 # ============================================================================
 
 CONFIG = {
-    "data_dir": "../data/train",
-    "test_dir": "../data/test",
-    "model_output_dir": "../backend/model",
+    "data_dir": str(PROJECT_ROOT / "data" / "train"),
+    "test_dir": str(PROJECT_ROOT / "data" / "test"),
+    "model_output_dir": str(PROJECT_ROOT / "backend" / "model"),
+    "results_dir": str(SCRIPT_DIR.parent / "results"),
     "image_size": (224, 224),
     "batch_size": 32,
     "epochs": 15,
@@ -251,8 +256,11 @@ def evaluate_model(model, test_ds):
     return results
 
 
-def plot_training_history(history, save_path="training_history_mobilenetv3.png"):
+def plot_training_history(history, save_path=None):
     """Plot training metrics."""
+    if save_path is None:
+        save_path = os.path.join(CONFIG["results_dir"], "training_history_mobilenetv3.png")
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 

@@ -14,7 +14,7 @@ Source: [Kaggle - Hot Dog Not Hot Dog](https://www.kaggle.com/datasets/yashvrdnj
 
 | Model | Test Accuracy | Precision | Recall | TFLite Size |
 |-------|---------------|-----------|--------|-------------|
-| MobileNetV3Small | 91.2% | 97.2% | 84.8% | 1.1 MB |
+| MobileNetV3Small | 91.8% | 97.9% | 85.4% | 1.1 MB |
 | **ResNet50** | **94.5%** | **95.8%** | **93.1%** | 23 MB |
 
 ## Training Configuration
@@ -49,10 +49,10 @@ Source: [Kaggle - Hot Dog Not Hot Dog](https://www.kaggle.com/datasets/yashvrdnj
 ## Training Curves
 
 ### MobileNetV3Small
-![MobileNetV3 Training](training_history_mobilenetv3.png)
+![MobileNetV3 Training](results/training_history_mobilenetv3.png)
 
 ### ResNet50
-![ResNet50 Training](training_history_resnet50.png)
+![ResNet50 Training](results/training_history_resnet50.png)
 
 ## Observations
 
@@ -71,9 +71,9 @@ pip install -r requirements.txt
 python extract_data.py
 
 # Train MobileNetV3
-python train_mobilenetv3.py
+python train/train_mobilenetv3.py
 
 # Train ResNet50
-python train_resenet50.py
+python train/train_resenet50.py
 ```
 
