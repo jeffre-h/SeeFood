@@ -1,6 +1,8 @@
 flask
 flask-cors
+flask-limiter
 tensorflow
 Pillow
 python-dotenv
 gunicorn
+redis

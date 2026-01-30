@@ -1,6 +1,6 @@
 # SeeFood API
 
-Flask APIs w/ Redis caching and rate-limiting.
+Flask API for hot dog image classification with Redis caching.
 
 ## Endpoints
 
