@@ -20,6 +20,10 @@ build/
 *.tflite
 *.pb
 
+# Allow model weights in backend for Spaces
+!backend/model/*.keras
+!backend/model/*.tflite
+
 # Training artifacts
 best_model.*
 checkpoints/
