@@ -97,8 +97,7 @@ const DotSpinner = () => {
   );
 };
 
-// API configuration
-const API_URL = process.env.EXPO_PUBLIC_API_URL;
+const API_URL = 'https://jeff1709-seefood.hf.space';
 
 type PredictionResult = {
   is_hotdog: boolean;
