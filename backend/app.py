@@ -14,7 +14,6 @@ from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import redis
-from predictor import get_predictor
 
 app = Flask(__name__)
 CORS(app)
@@ -120,7 +119,8 @@ def predict():
         # Reset file pointer for prediction
         file.seek(0)
 
-        # Run prediction
+        # Run prediction (lazy import to avoid blocking startup)
+        from predictor import get_predictor
         predictor = get_predictor()
         result = predictor.predict(file)
 
@@ -165,6 +165,7 @@ def index():
 
 if __name__ == "__main__":
     print("Loading model...")
+    from predictor import get_predictor
     get_predictor()
     print("Starting server...")
 
