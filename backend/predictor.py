@@ -5,7 +5,7 @@ Predictor - Loads model and runs inference.
 import os
 from pathlib import Path
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageOps
 import tensorflow as tf
 
 
@@ -53,6 +53,9 @@ class HotDogPredictor:
         if not isinstance(image, Image.Image):
             image = Image.open(image)
 
+        # Apply EXIF orientation (phone cameras embed rotation metadata)
+        image = ImageOps.exif_transpose(image)
+
         # Convert to RGB if necessary
         if image.mode != "RGB":
             image = image.convert("RGB")
@@ -60,15 +63,12 @@ class HotDogPredictor:
         # Resize to model input size
         image = image.resize(self.image_size)
 
-        # Convert to numpy array
-        img_array = np.array(image)
+        # Convert to numpy array and add batch dimension
 
-        # Add batch dimension
-        img_array = np.expand_dims(img_array, axis=0)
-
-        # Apply model-specific preprocessing
-        # ResNet50 uses caffe-style preprocessing
-        img_array = tf.keras.applications.resnet50.preprocess_input(img_array)
+        # Bug fix: Do NOT apply resnet50.preprocess_input here
+        # Model already has it as an internal layer (see train_resenet50.py:118).
+        # Double-preprocessing was causing ~48% hotdog accuracy at inference.
+        img_array = np.expand_dims(np.array(image, dtype=np.float32), axis=0)
 
         return img_array
 
