@@ -1,3 +1,12 @@
+---
+title: SeeFood
+emoji: 🌭
+colorFrom: red
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # SeeFood
 
 Inspired by the Silicon Valley TV show, this mobile app recreates the iconic “Not Hotdog” app that analyzes images and classifies them as “hot dog” or “not hot dog.”
