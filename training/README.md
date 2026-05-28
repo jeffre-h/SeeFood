@@ -74,6 +74,6 @@ python extract_data.py
 python train/train_mobilenetv3.py
 
 # Train ResNet50
-python train/train_resenet50.py
+python train/train_resnet50.py
 ```
 

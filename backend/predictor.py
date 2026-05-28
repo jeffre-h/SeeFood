@@ -66,7 +66,7 @@ class HotDogPredictor:
         # Convert to numpy array and add batch dimension
 
         # Bug fix: Do NOT apply resnet50.preprocess_input here
-        # Model already has it as an internal layer (see train_resenet50.py:118).
+        # Model already has it as an internal layer (see train_resnet50.py:118).
         # Double-preprocessing was causing ~48% hotdog accuracy at inference.
         img_array = np.expand_dims(np.array(image, dtype=np.float32), axis=0)
 

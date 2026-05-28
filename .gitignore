@@ -24,6 +24,9 @@ build/
 !backend/model/*.keras
 !backend/model/*.tflite
 
+# Redis
+dump.rdb
+
 # Training artifacts
 best_model.*
 checkpoints/
