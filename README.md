@@ -16,7 +16,7 @@ This project brings that concept to life by building a real end-to-end machine l
 
 ## Demo
 
-https://github.com/user-attachments/assets/80c28b79-e2f8-41e0-afc1-10aeb476505e
+[![SeeFood Demo](https://img.youtube.com/vi/gcnSB55mmXc/0.jpg)](https://youtube.com/shorts/gcnSB55mmXc)
 
 ## Project Structure
 
