@@ -14,7 +14,8 @@ Inspired by the Silicon Valley TV show, this mobile app recreates the iconic “
 
 This project brings that concept to life by building a real end-to-end machine learning system. It includes training a deep learning model on a [Kaggle dataset](https://www.kaggle.com/datasets/yashvrdnjain/hotdognothotdog), serving predictions through a Flask API, and integrating the model into a React Native mobile app that captures or uploads images and returns real-time classification results.
 
-##Demo
+## Demo
+
 https://github.com/user-attachments/assets/80c28b79-e2f8-41e0-afc1-10aeb476505e
 
 ## Project Structure
